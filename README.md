@@ -3,9 +3,11 @@
 
 Richard Young
 CS270 
+Guymon Hall
+University of Nevada Las Vegas
 
 
-I have worked on this for hours.. and hours.. I have redone it 5 times.. I have tryed on different servers and I am not sure what is going on 
+This works 99% of the way, however it doesn work like it should. I have worked on this for hours.. and hours.. I have redone it 5 times.. I have tryed on different servers and I am not sure what is going on. 
 
 both  
 Ryan Pepito
