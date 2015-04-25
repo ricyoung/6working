@@ -1,9 +1,75 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Email:</strong>
-  <%= @participant.email %>
+<!-- display parts email -->
+<strong>Email:</strong>
+<%= @participant.email %>
 </p>
 
+<!-- array of locartions --> 
+<% @l2 = Array.new %>
+<% @participantinfo = Roster.where(participant_id: @participant.id) %>
+<% @visited = @participantinfo.pluck(:event_id).uniq %>
+<% @visited.each do |num| %>
+<% @num = num %>
+<% @l1 = Event.find_by id: @num %>
+<% @l2.concat @l1.locations.pluck(:location_id) %>
+<% @lfinal = @l2.uniq %>
+<% end %>
+<% @l3 = Array.new %>
+<% @participantinfo.each do |roster| %>
+<% @l3.push(roster.location_id) %>
+<% end %>
+<% @lshow = @lfinal - @l3 %>
+<% @visited.each do |num2| %>
+<% @num2 = num2 %>
+<% @event2 = Event.find_by id: @num2 %>
+<h2><strong><%= @event2.name %></strong></h2>
+<% @event2.locations.each do |j| %>
+<% @sift = Array.new %>
+<% @sift.push(j.id) %>
+<% end %>
+<p>
+<strong>All Locations:</strong>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Tag</th>
+<th colspan="3"></th>
+</tr>
+</thead>
+<% @event2.locations.each do |magic| %>
+<tr>
+<td><%= magic.name %></td>
+<td><%= magic.tag %></td>
+</tr>
+<% end %>
+</table>
+</p>
+<p>
+<strong>Locations Left:</strong>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Tag</th>
+<th colspan="3"></th>
+</tr>
+</thead>
+<% @finally = @lshow - @sift %>
+<% @finally2 = @lshow & @sift %>
+<% @finally3 = @finally | @finally2 %>
+<% @finally3.each do |num3| %>
+<% @num3 = num3 %>
+<% @loc2 = Location.find_by id: @num3 %>
+<tr>
+<td><%= @loc2.name %></td>
+<td><%= @loc2.tag %></td>
+</tr>
+<% end %>
+</table>
+</p>
 <%= link_to 'Edit', edit_participant_path(@participant) %> |
 <%= link_to 'Back', participants_path %>
+
+<% end %>

@@ -10,7 +10,11 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    @qr = RQRCode::QRCode.new("http://#{request.host}/#{@location.tag}", :size => 8)
+    #if params(:event_id)
+     #   @qr = RQRCode::QRCode.new("http://#{request.host}:3000/#{@location.tag}", :size => 8)
+        @qr = RQRCode::QRCode.new("http://#{request.host}:3000/#{params[:event_id]}/#{@location.tag}", :size => 8)
+
+    # end  
   end
 
   # GET /locations/new

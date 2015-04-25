@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # create two Events
-2.times do |i|
+20.times do |i|
   Event.create(name: "Event #{i + 1}")
 end
 
 # create five Locations
-5.times do |i|
+200.times do |i|
     Location.create(
         name: "Location #{i + 1}",
         tag: (('A'..'Z').to_a + ('a'..'z').to_a + (0..9).to_a).shuffle[0..7].join,
@@ -20,7 +20,7 @@ end
 end
 
 # create three Participants
-3.times do |i|
+30.times do |i|
     Participant.create(email: "participant#{i + 1}@email.com")
 end
 

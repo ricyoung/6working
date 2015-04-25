@@ -10,6 +10,8 @@ class ParticipantsController < ApplicationController
   # GET /participants/1
   # GET /participants/1.json
   def show
+#    @event = Event.find(params[:event_id])
+  #  @qr = RQRCode::QRCode.new("http://#{request.host}:3000/#{@event.id}/#{@location.tag}", :size => 8)
   end
 
   # GET /participants/new
