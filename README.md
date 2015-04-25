@@ -1,7 +1,7 @@
 # 6working
 
 
-Richard Young
+Richard Young<br/>
 CS270 
 Guymon Hall
 University of Nevada Las Vegas
